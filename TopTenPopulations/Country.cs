@@ -1,4 +1,4 @@
-﻿namespace TopTenPopulations
+﻿namespace AllCountriesPopulation
 {
     public class Country
     {

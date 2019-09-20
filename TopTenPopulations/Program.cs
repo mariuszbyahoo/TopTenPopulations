@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 
-namespace TopTenPopulations
+namespace AllCountriesPopulation
 {
     class Program
     {
@@ -9,7 +10,7 @@ namespace TopTenPopulations
             string filePath = @"A:\data\Pop by Largest Final.csv";
             CsvReader reader = new CsvReader(filePath);
 
-            Country[] countries = reader.ReadAllCountries(10);
+            List<Country> countries = reader.ReadAllCountries();
 
             foreach (Country country in countries)
             {

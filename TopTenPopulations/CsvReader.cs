@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace TopTenPopulations
+namespace AllCountriesPopulation
 {
     public class CsvReader
     {
