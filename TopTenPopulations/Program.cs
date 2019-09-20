@@ -9,7 +9,7 @@ namespace TopTenPopulations
             string filePath = @"A:\data\Pop by Largest Final.csv";
             CsvReader reader = new CsvReader(filePath);
 
-            Country[] countries = reader.ReadFirstNCountries(10);
+            Country[] countries = reader.ReadAllCountries(10);
 
             foreach (Country country in countries)
             {

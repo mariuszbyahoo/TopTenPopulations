@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace TopTenPopulations
@@ -12,12 +13,12 @@ namespace TopTenPopulations
             this._csvFilePath = filePath;
         }
 
-        public Country[] ReadFirstNCountries(int nCountries)
+        public List<Country> ReadAllCountries()
         {
 
 // Instantiating an array without knowing its elements
 
-            Country [] countries = new Country[nCountries];
+            List<Country> countries = new List<Country>();
 
 /* using statement is required by StreamReader and makes sure that the StreamReader
  object is disposed of once we've finished with it. 
@@ -29,10 +30,11 @@ namespace TopTenPopulations
                 // read header line, it needs to be ignored.
                 sr.ReadLine();
 
-                for(int i = 0; i < nCountries; i++)
-                {
-                    string csvLine = sr.ReadLine();
-                    countries[i] = ReadCountryFromCsvLine(csvLine);
+                string csvLine;
+                while ((csvLine = sr.ReadLine()) != null)
+                { 
+                    csvLine = sr.ReadLine();
+                    countries.Add(ReadCountryFromCsvLine(csvLine));
                 }
             }
 
