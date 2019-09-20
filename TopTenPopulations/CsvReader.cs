@@ -13,7 +13,9 @@ namespace TopTenPopulations
 
         public Country[] ReadFirstNCountries(int nCountries)
         {
-            throw new NotImplementedException();
+// Instantiating an array without knowing its elements
+            Country [] countries = new Country[nCountries];
+            return countries;
         }
     }
 }
