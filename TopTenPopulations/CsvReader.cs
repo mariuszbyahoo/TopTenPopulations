@@ -41,7 +41,6 @@ namespace AllCountriesPopulation
 
         public Country ReadCountryFromCsvLine(string csvLine)
         {
-            Console.WriteLine(csvLine);
             string[] parts = csvLine.Split(',');
 
             string name;
