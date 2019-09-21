@@ -20,11 +20,17 @@ namespace AllCountriesPopulation
                 Console.WriteLine("You must type in a +ve integer. Exiting.");
                 return;
             }
-
-            int maxToDisplay = Math.Min(userInput, countries.Count);
+            int maxToDisplay = userInput;
             //foreach (Country country in countries)
-            for(int i = 0; i < maxToDisplay; i ++)
+            for(int i = 0; i < countries.Count; i ++)
             {
+                if( i > 0 && (i % maxToDisplay == 0))
+                {
+                    Console.WriteLine("Hit return to continue, anything else to quit>");
+                    if (Console.ReadLine() != "")
+                        break;
+                }
+
                 Country country = countries[i];
                 Console.WriteLine($"{PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)} : { country.Name}");
             }
