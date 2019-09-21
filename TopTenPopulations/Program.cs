@@ -13,7 +13,10 @@ namespace AllCountriesPopulation
 
             List<Country> countries = reader.ReadAllCountries();
             
-            foreach (Country country in countries.Take(10))
+// The OrderBy() method requires a delegate or lambda expression passed 
+// in as an argument of the method.
+            foreach (Country country in countries.OrderBy(x => x.Name))
+// LINQ doesn't really support batching
             {
                 Console.WriteLine($"{PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)} : { country.Name}");
             }
