@@ -48,11 +48,10 @@ namespace AllCountriesPopulation
          */
         public void RemoveCommaCountries(List<Country> countries)
         {
-            for(int i = countries.Count - 1; i >= 0 ; i--)
-            {
-                if (countries[i].Name.Contains(','))
-                    countries.RemoveAt(i);
-            }
+/*      The lambda expression below removes all items for wich the expression 
+*       "x => x.Name.Contains(',')" is true
+*/
+            countries.RemoveAll(x => x.Name.Contains(','));
         }
 
         public Country ReadCountryFromCsvLine(string csvLine)
