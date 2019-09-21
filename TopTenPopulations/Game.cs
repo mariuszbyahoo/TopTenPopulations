@@ -6,12 +6,22 @@ namespace NoughtsCrosses
 {
     class Game
     {
-        private Square[][] _board =
+        /*private Square[][] _board =
         {
             new Square[3],
             new Square[3],
             new Square[3]
-        };
+        };*/
+
+/*
+ * Line below shows an example of a Multidimensional Array, where against of looking
+ * at the elements of an array with a one lookup, you need to use chained lookup
+ * 
+ * You may use the Multidimensional Array only when you need a completely regular 
+ * grid, those cannot be jagged.
+ */
+
+        private Square[,] _board = new Square[3, 3];
 
         public void PlayGame()
         {
@@ -42,13 +52,13 @@ namespace NoughtsCrosses
             if (row < 1 || row > 3 || column < 1 || column > 3)
                 return false;
 
-            if(_board[row - 1][column - 1].Owner != Player.Noone)
+            if( _board[row - 1,column - 1].Owner != Player.Noone)
             {
                 Console.WriteLine("Square is already occupied");
                 return false;
             }
 
-            _board[row - 1][column - 1] = new Square(player);
+            _board[row - 1,column - 1] = new Square(player);
             return true;
         }
 
@@ -57,7 +67,7 @@ namespace NoughtsCrosses
             for (int i = 0; i < 3; i++)
             {
                 for ( int j = 0; j < 3; j++)
-                    Console.Write(" " + _board[i][j]);
+                    Console.Write(" " + _board[i,j]);
                 Console.WriteLine();
             }
         }
