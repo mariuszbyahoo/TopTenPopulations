@@ -38,6 +38,22 @@ namespace AllCountriesPopulation
             }
             return countries;
         }
+        /*
+         * When searching the items in the list in order to delete some items,
+         * you need to enumerate backwards, because of the fact, that when an item
+         * are being removed from the list, the 'scanner' will miss those items, 
+         * which are being moved upwards after the item's removal.
+         * If you are inserting an items instead of removing them the same 
+         * issue applies. You're better of working backwards.
+         */
+        public void RemoveCommaCountries(List<Country> countries)
+        {
+            for(int i = countries.Count - 1; i >= 0 ; i--)
+            {
+                if (countries[i].Name.Contains(','))
+                    countries.RemoveAt(i);
+            }
+        }
 
         public Country ReadCountryFromCsvLine(string csvLine)
         {

@@ -11,6 +11,7 @@ namespace AllCountriesPopulation
             CsvReader reader = new CsvReader(filePath);
 
             List<Country> countries = reader.ReadAllCountries();
+            reader.RemoveCommaCountries(countries);
 
 
             Console.WriteLine("How many countries do You want to display?");
@@ -22,11 +23,10 @@ namespace AllCountriesPopulation
             }
             int maxToDisplay = userInput;
             //foreach (Country country in countries)
-            //for(int i = 0; i < countries.Count; i ++)
-            for( int i = countries.Count - 1 ; i >= 0 ; i--)
+            for(int i = 0; i < countries.Count; i ++)
+            //for( int i = countries.Count - 1 ; i >= 0 ; i--)
             {
-                int displayIndex = countries.Count - 1 - i;
-                if( displayIndex > 0 && (displayIndex % maxToDisplay == 0))
+                if( i > 0 && (i % maxToDisplay == 0))
                 {
                     Console.WriteLine("Hit return to continue, anything else to quit>");
                     if (Console.ReadLine() != "")
