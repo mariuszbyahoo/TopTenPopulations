@@ -13,12 +13,12 @@ namespace AllCountriesPopulation
             this._csvFilePath = filePath;
         }
 
-        public List<Country> ReadAllCountries()
+        public Dictionary<string, Country> ReadAllCountries()
         {
 
 // Instantiating an array without knowing its elements
 
-            List<Country> countries = new List<Country>();
+            Dictionary<string, Country> countries = new Dictionary<string, Country>();
 
 /* using statement is required by StreamReader and makes sure that the StreamReader
  object is disposed of once we've finished with it. 
@@ -32,8 +32,9 @@ namespace AllCountriesPopulation
 
                 string csvLine;
                 while ((csvLine = sr.ReadLine()) != null)
-                { 
-                    countries.Add(ReadCountryFromCsvLine(csvLine));
+                {
+                    Country country = ReadCountryFromCsvLine(csvLine);
+                    countries.Add(country.Code, country);
                 }
             }
             return countries;
